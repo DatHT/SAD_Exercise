@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cathl.icook.dto.NewUser;
+import com.cathl.icook.dto.News;
 import com.cathl.icook.entity.Food;
 import com.cathl.icook.entity.TblCategory;
 import com.cathl.icook.entity.TblFood;
@@ -39,22 +41,34 @@ import com.cathl.icook.service.UserService;
 @Controller
 public class HomeController {
 
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@Autowired
-	private CategoryService cstegoryService;
-	@Autowired
-	private FoodService foodService;
-	@Autowired
-	private FoodDetailSevices foodDetailService;
 	@Autowired
 	private UserService userService;
-	private Integer foodID;
+	
+	@Autowired
+	private NewsService newService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView userPage() {
-		return new ModelAndView("index");
+		return new ModelAndView("login");
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(@ModelAttribute("user") NewUser user) {
+		boolean result = userService.checkLogin(user);
+		if (result) {
+			return "index";
+		}else return "error";
+		
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(@RequestParam("categoryId") int id, Model model) {
+		News news = newService.getCategories(id);
+		if (news != null) {
+			model.addAttribute("NEWS", news);
+		}
+		return "news";
+		
 	}
 
 	@RequestMapping(value = "/Admin", method = RequestMethod.GET)
