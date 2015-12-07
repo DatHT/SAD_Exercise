@@ -21,13 +21,19 @@ public class NewsServiceImpl implements NewsService {
 	@Override
 	public List<News> getNewsByCategory(int categoryId) {
 		// TODO Auto-generated method stub
-		return null;
+		return newsDAO.getNewsByCategory(categoryId);
 	}
 
 	@Override
 	public News getNewsById(int newsId) {
 		// TODO Auto-generated method stub
-		return null;
+		return newsDAO.getNewsById(newsId);
+	}
+
+	@Override
+	public List<News> getAllNews() {
+		// TODO Auto-generated method stub
+		return newsDAO.getAllNews();
 	}
 
 }

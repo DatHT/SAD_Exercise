@@ -25,4 +25,10 @@ public class NewsDAOImpl implements NewsDAO {
 		return hibernateUltil.fetchById(newsId, News.class);
 	}
 
+	@Override
+	public List<News> getAllNews() {
+		// TODO Auto-generated method stub
+		return hibernateUltil.fetchAll(News.class);
+	}
+
 }
