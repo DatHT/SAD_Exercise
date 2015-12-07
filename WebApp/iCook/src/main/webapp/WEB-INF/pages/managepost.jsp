@@ -30,9 +30,8 @@
 								<thead>
 									<tr>
 										<th>ID</th>
-										<th>Mòn ăn</th>
-										<th>Ảnh đại diện</th>
-										<th>Lượt xem</th>
+										<th>Tiêu đề</th>
+										<th>Highlight</th>
 										<th>Action</th>
 										<th>Select</th>
 									</tr>
@@ -64,8 +63,7 @@
 									<tr>
 										<th>ID</th>
 										<th>Tiêu đề</th>
-										<th>Người đăng</th>
-										<th>Ngày đăng</th>
+										<th>Highlight</th>
 										<th>Action</th>
 										<th>
 											<button type="button" class="btn btn-sm btn-success" id="btnDelete">Delete</button>
