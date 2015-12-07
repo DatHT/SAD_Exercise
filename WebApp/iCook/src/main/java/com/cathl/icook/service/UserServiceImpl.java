@@ -10,12 +10,12 @@ import com.cathl.icook.entity.TblUser;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService{
-	@Autowired
-	private UserDAO userDao;
+
 	@Override
-	public TblUser checkLogin(TblUser inputUser) {
+	public boolean checkLogin(String username, String password) {
 		// TODO Auto-generated method stub
-		return userDao.checkLogin(inputUser);
+		return true;
 	}
+
 
 }
