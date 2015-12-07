@@ -59,11 +59,11 @@
               <form action="">
                 <div class="row">
                   <div id="form-search"class="form-search col-sm-6 col-md-4 col-sm-offset-2 col-md-offset-3">
-					<ul class="dropdown-menu">
-					    <li><a href="#">HTML</a></li>
-					    <li><a href="#">CSS</a></li>
-					    <li><a href="#">JavaScript</a></li>
-					  </ul>
+					<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+				    <span class="caret"></span></button>
+				    <ul id="category" class="dropdown-menu" role="menu" aria-labelledby="menu1">
+				      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+				    </ul>
                   </div>
                   <div id="search-button-container" class="form-button col-md-2 col-md-offset-1">
                     <a id="search-button" data-scroll class="animated " href="#search-result-container">
@@ -82,32 +82,15 @@
       <div class="pattern">
         <div  class="container">
           <div class="search-container">
-              <div id="search-result" class="row">
-
-                <div class="col-sm-4 col-md-3">
-                  <div class="food-item">
-                    <figure>
-                      <img src="<c:url value="/resources/user_page/images/23.jpg"></c:url>">
-                      <figcaption>
-                        <h4 class="food-name">Cách làm sữa lắc với máy xay sinh tố thơm ngon bổ dưỡng</h4>
-                        <p class="material">
-                          Giò heo, cà chua
-                        </p><!-- /.material -->
-                      </figcaption>
-                    </figure>
-                    <div class="search-detail-container">
-                      <div class="search-detail-btn">
-                        <span class="search-detail-box description-container">
-                          <a href="#" class="">
-                            <h3>Cách làm sữa lắc với máy xay sinh tố thơm ngon bổ dưỡng</h3>
-                            <p><span>12312412412312 31241241231231 241241231212 3213123 123123123</span></p>
-                          </a><!-- /.facebook-btn -->
-                        </span><!-- /.search-detail-box -->
-                      </div><!-- /.search-detail-btn -->
-                    </div><!-- /.search-detail-container -->
-                  </div><!-- /.food-item -->
-                </div><!-- /.col-md-3 -->
-
+              <div class="row">
+				<ul id="search-result" class="list-group">
+			      <li class="list-group-item">
+			      	<h3>Title</h3>
+			      	<p>description</p>
+			      </li>
+			      <li class="list-group-item">Item 2</li>
+			      <li class="list-group-item">Item 3</li>
+    			</ul>
               </div><!-- /.row -->
           </div> 
           <div class="col-md-offset-6">

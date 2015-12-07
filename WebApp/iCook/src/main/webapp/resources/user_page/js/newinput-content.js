@@ -26,7 +26,7 @@ function ajax_loading(item){
         
     $.ajax({
         type: "GET",
-        url: "/",
+        url: "/getAllNews",
         //data: "{}",
         //contentType: "application/json; charset=utf-8",
         dataType:"json", 
@@ -35,32 +35,12 @@ function ajax_loading(item){
 //        	alert(result);
         	var resultObj = result;
 //        	alert(result.length);
-            $('#loading').fadeOut('fast');
             var html="";
             $.each (resultObj, function (key, item){
-                html +=  '<div class="col-sm-4 col-md-3">';
-              		html +=  '<div class="food-item">';
-                    	html +=  '<figure>';
-                      		html +=  '<img src="images/23.jpg">';
-                      		html +=  '<figcaption>';
-                        		html +=  '<h4 class="food-name">Cách làm sữa lắc với máy xay sinh tố thơm ngon bổ dưỡng</h4>';
-                        		html +=  '<p class="material">';
-                          			html +=  'Giò heo, cà chua';
-                        		html +=  '</p><!-- /.material -->';
-                      		html +=  '</figcaption>';
-                    	html +=  '</figure>';
-                    	html +=  '<div class="search-detail-container">';
-                      		html +=  '<div class="search-detail-btn">';
-                        		html +=  '<span class="search-detail-box description-container">';
-                          			html +=  '<a href="#" class="">';
-                            			html +=  '<h3>Linh dep trai/h3>';
-                            			html +=  '<p><span>12312412412312 31241241231231 241241231212 3213123 123123123</span></p>';
-                          			html +=  '</a><!-- /.facebook-btn -->';
-                        		html +=  '</span><!-- /.search-detail-box -->';
-                      		html +=  '</div><!-- /.search-detail-btn -->';
-                    	html +=  '</div><!-- /.search-detail-container -->';
-                  	html +=  '</div><!-- /.food-item -->';
-                html +=  '</div><!-- /.col-md-3 -->';
+            	html+='<li class="list-group-item">';
+            		html+='<h3>'+resultObj.Title+'</h3>';
+            		html+='<p>'+resultObj.HighLight+'</p>';
+            	html+='</li>';
             });
             $('#search-result').html(html);
         },
@@ -70,6 +50,23 @@ function ajax_loading(item){
     });
 }
 
+function load_category(){
+	$.ajax({
+        type: "GET",
+        url: "/getNews",
+        //data: "{}",
+        //contentType: "application/json; charset=utf-8",
+        dataType:"json", 
+        success: function(result) {
+        	var resultObj = result;
+            var html="";
+            $.each (resultObj, function (key, item){
+            	html+='<li role="presentation"><a role="menuitem" tabindex="-1" href="#">'+resultObj.categoryName+'</a></li>';
+            });
+            $('#category').html(html);
+        }
+	});
+}
 //-----------End Ajax load result--------------
 
 //---------Ajax load result when click---------
