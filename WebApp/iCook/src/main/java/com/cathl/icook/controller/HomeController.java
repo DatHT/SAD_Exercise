@@ -33,6 +33,7 @@ import com.cathl.icook.service.CategoryService;
 import com.cathl.icook.service.CategoryServiceImpl;
 import com.cathl.icook.service.FoodDetailSevices;
 import com.cathl.icook.service.FoodService;
+import com.cathl.icook.service.NewsService;
 import com.cathl.icook.service.UserService;
 
 /**
