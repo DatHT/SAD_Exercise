@@ -55,7 +55,7 @@ public class HomeController {
 		return news;
 	}
 	
-	@RequestMapping(value = "/getAllCategories", method = RequestMethod.POST)
+	@RequestMapping(value = "/getAllCategories", method = RequestMethod.GET)
 	public String getCategories(Model model) {
 		 List<Category> categories = categoryService.getCategory();
 		if (categories != null) {
@@ -63,6 +63,13 @@ public class HomeController {
 		}
 		return "category";
 	}
-
+	
+	
+	@RequestMapping(value = "/getNews", method = RequestMethod.GET)
+	public String getNews(Model model) {
+		List<News> list = newService.getAllNews();
+		model.addAttribute("ALLNEWS", list);
+		return "managepost";
+	}
 	
 }
