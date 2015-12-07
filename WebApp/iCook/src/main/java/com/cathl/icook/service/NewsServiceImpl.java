@@ -2,8 +2,11 @@ package com.cathl.icook.service;
 
 import java.util.List;
 
-import com.cathl.icook.entity.News;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
+import com.cathl.icook.entity.News;
+@Service
 public class NewsServiceImpl implements NewsService {
 
 	@Override
