@@ -22,9 +22,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cathl.icook.dto.CategoryDTO;
 import com.cathl.icook.dto.NewUser;
-import com.cathl.icook.dto.News;
+import com.cathl.icook.dto.NewsDTO;
+import com.cathl.icook.entity.Category;
 import com.cathl.icook.entity.Food;
+import com.cathl.icook.entity.News;
 import com.cathl.icook.entity.TblCategory;
 import com.cathl.icook.entity.TblFood;
 import com.cathl.icook.entity.TblFoodDetail;
@@ -47,6 +50,10 @@ public class HomeController {
 	
 	@Autowired
 	private NewsService newService;
+	
+	@Autowired
+	private CategoryService categoryService;
+	
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView userPage() {
@@ -62,203 +69,25 @@ public class HomeController {
 		
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@RequestParam("categoryId") int id, Model model) {
-		News news = newService.getCategories(id);
+	@RequestMapping(value = "/getNews", method = RequestMethod.GET)
+	public String getNews(@RequestParam("categoryId") int id, Model model) {
+		News news = newService.getNewsById(id);
 		if (news != null) {
 			model.addAttribute("NEWS", news);
 		}
 		return "news";
 		
 	}
-
-	@RequestMapping(value = "/Admin", method = RequestMethod.GET)
-	public ModelAndView login(Model model, HttpSession session) {
-		if (session.getAttribute("username") != null) {
-			model.addAttribute("pageheader", "Admin");
-			model.addAttribute("activeTab", "Dashboard");
-			return new ModelAndView("dashboard");
-		}
-		return new ModelAndView("login", "user", new TblUser());
-	}
-
-	@RequestMapping(value = "/Admin", method = RequestMethod.POST)
-	public String home(@ModelAttribute("user") TblUser user, Locale locale, Model model, HttpSession session) {
-		TblUser checkUser = userService.checkLogin(user);
-		if (checkUser != null) {
-			session.setAttribute("username", checkUser.getUserName());
-			model.addAttribute("pageheader", "Admin");
-			model.addAttribute("activeTab", "Dashboard");
-			return "dashboard";
-		}
-		return "login";
-	}
-
-	@RequestMapping(value = "/CreatePost", method = RequestMethod.GET)
-	public String createPost(Model model, HttpSession session) {
-		if (session.getAttribute("username") != null) {
-			model.addAttribute("pageheader", "Create New Post");
-			model.addAttribute("activeTab", "CreatePost");
-			return "createpost";
-		}
-		return "login";
-	}
-
-	@RequestMapping(value = "/ManagePost", method = RequestMethod.GET)
-	public String managePost(Model model, HttpSession session) {
-		if (session.getAttribute("username") != null) {
-			List<TblFood> result = new ArrayList<TblFood>();
-			result = foodService.getFood();
-			model.addAttribute("foodPost", result);
-			model.addAttribute("pageheader", "Quản lý bài đăng");
-			model.addAttribute("activeTab", "ManagePost");
-			return "managepost";
-		}
-		return "login";
-	}
-
-	@RequestMapping(value = "/getCategory", method = RequestMethod.GET)
-	@ResponseBody
-	public List<TblCategory> getCategory(Model m, HttpSession session) {
-		if (session.getAttribute("username") != null) {
-		List<TblCategory> result = new ArrayList<TblCategory>();
-		result = cstegoryService.getCategory();
-		for (TblCategory tblCategory : result) {
-			System.out.println(tblCategory.getCategoryName());
-		}
-		return result;
-		}
-		return null;
-	}
-
-	@RequestMapping(value = "/getFood", method = RequestMethod.GET)
-	@ResponseBody
-	public List<TblFood> getFood(HttpSession session) {
-		if (session.getAttribute("username") != null) {
-		List<TblFood> result = new ArrayList<TblFood>();
-		result = foodService.getFood();
-		return result;
-		}
-		return null;
-	}
-
-	@RequestMapping(value = "/getFoodID", method = RequestMethod.GET)
-	@ResponseBody
-	public TblFood getFoodID(@RequestParam("txtFoodID") String foodID, HttpSession session) {
-		if (session.getAttribute("username") != null) {
-		Integer foodIDInt = null;
-		System.out.println(foodID);
-		try {
-			foodIDInt = Integer.parseInt(foodID);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		TblFood result = foodService.getFoodID(foodIDInt);
-		return result;
-		}
-		return null;
-	}
-
-	@RequestMapping(value = "/updateFood", method = RequestMethod.POST)
-	public @ResponseBody TblFood updateFood(@RequestBody TblFood food, HttpSession session) {
-		TblFood newFood = foodService.updateFood(food);
-		return newFood;
-	}
-
-	@RequestMapping(value = "/createCaltalogue", method = RequestMethod.POST)
-	public @ResponseBody TblCategory updateFood(@RequestBody TblCategory catalog, HttpSession session) {
-		int count = 0;
-		List<TblCategory> allCatalog = cstegoryService.getCategory();
-		for (TblCategory tblCategory : allCatalog) {
-			if (tblCategory.getCategoryName().toUpperCase().equals(catalog.getCategoryName().toUpperCase())) {
-				count++;
-			}
-		}
-		if (count == 0) {
-			TblCategory newCalte = new TblCategory(catalog.getCategoryName());
-			Serializable result = cstegoryService.createNewCatelog(newCalte);
-			return newCalte;
-		}
-		return null;
-	}
-
-	@RequestMapping(value = "deleteFood", method = RequestMethod.GET)
-	public void deleteFood(@RequestParam("txtFoodID") String foodID, HttpSession session) {
-		if (session.getAttribute("username") != null) {
-		Integer foodIDInt = null;
-		System.out.println(foodID);
-		try {
-			foodIDInt = Integer.parseInt(foodID);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		foodDetailService.deleteFoodDetail(foodIDInt);
-		foodService.deleteFood(foodIDInt);
-		}
-
-	}
-
-	@RequestMapping(value = "/getFoodDetail", method = RequestMethod.GET)
-	@ResponseBody
-	public TblFoodDetail getFoodDetailIDJson(@RequestParam("txtFoodID") String foodID, HttpSession session) {
-		if (session.getAttribute("username") != null) {
-		Integer foodIDInt = null;
-		System.out.println(foodID);
-		try {
-			foodIDInt = Integer.parseInt(foodID);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		TblFoodDetail foodDetail = foodDetailService.getFoodDetailID(foodIDInt);
-		return foodDetail;
-		}
-		return null;
-	}
-	@RequestMapping(value = "/getFoodDetailUser", method = RequestMethod.GET)
-	public String getFoodDetailID(@RequestParam("txtFoodID") String foodID, Model model) {
 	
-		Integer foodIDInt = null;
-		System.out.println(foodID);
-		try {
-			foodIDInt = Integer.parseInt(foodID);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
+	@RequestMapping(value = "/getAllCategories", method = RequestMethod.POST)
+	public String getCategories(Model model) {
+		 List<Category> categories = categoryService.getCategory();
+		if (categories != null) {
+			model.addAttribute("CATEGORY", categories);
 		}
-		TblFoodDetail foodDetail = foodDetailService.getFoodDetailID(foodIDInt);
-		TblFood food =foodService.getFoodID(foodIDInt);
-		model.addAttribute("foodDetail", foodDetail);
-		model.addAttribute("food", food);
-		return "detail";
+		return "category";
 		
 	}
 
-	@RequestMapping(value = "/createFoodDetail", method = RequestMethod.POST)
-	@ResponseBody
-	public TblFoodDetail createFoodDetail(@RequestBody TblFoodDetail newFoodDetail, HttpSession session) {
-		Serializable result;
-		TblFoodDetail foodDetail = new TblFoodDetail(foodID, newFoodDetail.getMaterialDetail(),
-				newFoodDetail.getTutorial(), newFoodDetail.getSource(), newFoodDetail.getUser());
-		foodDetail.setFoodID(foodID);
-		result = foodDetailService.createFoodDetail(foodDetail);
-
-		System.out.println(result);
-		return foodDetail;
-	}
-
-	@RequestMapping(value = "/createFood", method = RequestMethod.POST)
-	@ResponseBody
-	public TblFood createFood(@RequestBody TblFood newFood, HttpSession session) {
-		Serializable result;
-		TblFood food = new TblFood(newFood.getCategoryId(), newFood.getFoodName(), newFood.getDescription(),
-				newFood.getLinkImage(), newFood.getListMaterial(), 0);
-
-		result = foodService.createFood(food);
-		foodID = food.getFoodId();
-		System.out.println(foodID);
-		return food;
-	}
+	
 }

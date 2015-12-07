@@ -1,5 +1,5 @@
 package com.cathl.icook.dto;
 
-public class News {
+public class NewsDTO {
 
 }
