@@ -55,6 +55,12 @@ public class HomeController {
 		return news;
 	}
 	
+	@RequestMapping(value = "/getCategories", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Category> getCategories() {
+		return categoryService.getCategory();
+	}
+	
 	@RequestMapping(value = "/getAllCategories", method = RequestMethod.GET)
 	public String getCategories(Model model) {
 		 List<Category> categories = categoryService.getCategory();
