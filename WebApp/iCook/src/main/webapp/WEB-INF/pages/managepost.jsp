@@ -38,7 +38,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${foodPost}" var="item" varStatus="counter">
+									<c:forEach items="${ALLNEWS}" var="item" varStatus="counter">
 										<tr id="${item.foodId}" class="thisrow">
 											<td>${counter.count }</td>
 											<td><a href="#">${item.title }</a></td>

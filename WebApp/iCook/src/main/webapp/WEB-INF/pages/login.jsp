@@ -50,20 +50,20 @@
                 <div class="padd">
                   <!-- Login form -->
                   
-                  <spring:form  cssClass="form-horizontal" action="/iCook/Admin"  commandName="user">
+                  <form  class="form-horizontal" action="/iCook"  commandName="user">
 
                     <!-- Email -->
                     <div class="form-group">
                       <label class="control-label col-lg-3" for="inputEmail">Email</label>
                       <div class="col-lg-9">
-                        <spring:input path="userName" cssClass="form-control" placeholder="Email"/>
+                        <input type="text" id="username" class="form-control" placeholder="Email"/>
                       </div>
                     </div>
                     <!-- Password -->
                     <div class="form-group">
                       <label class="control-label col-lg-3" for="inputPassword">Password</label>
                       <div class="col-lg-9">
-                       <spring:password path="password" cssClass="form-control" placeholder="Password"/>
+                       <input type="password" id="password" class="form-control" placeholder="Password"/>
                       </div>
                     </div>
                     <!-- Remember me checkbox and sign in button -->
@@ -81,7 +81,7 @@
 							<button type="reset" class="btn btn-default btn-sm">Reset</button>
 						</div>
                     <br />
-                 </spring:form>
+                 </form>
 				  
 				</div>
                 </div>
