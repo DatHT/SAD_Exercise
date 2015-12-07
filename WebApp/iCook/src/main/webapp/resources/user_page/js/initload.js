@@ -1,6 +1,5 @@
 $(window).load(function(){
     $("#check-search").val("on");
-    $('.preloader').remove();
 });
 var slideHeight = $(window).height();
 //Page home
