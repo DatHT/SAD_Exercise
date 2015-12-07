@@ -16,7 +16,7 @@ public class CategoryServiceImpl implements CategoryService{
 	@Autowired
 	CategoryDAO categoryDAO;
 	@Override
-	public List<TblCategory> getCategory() {
+	public List<Category> getCategory() {
 		// TODO Auto-generated method stub
 		return categoryDAO.getCategory();
 	}
