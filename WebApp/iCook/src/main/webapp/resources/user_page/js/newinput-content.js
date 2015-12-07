@@ -50,20 +50,15 @@ function ajax_loading(item){
     });
 }
 
-$(window).load(function(){
-	load_category();
-});
-
 function load_category(){
 	$.ajax({
         type: "GET",
-        url: "getCategories",
+        url: "/getNews",
         //data: "{}",
         //contentType: "application/json; charset=utf-8",
         dataType:"json", 
         success: function(result) {
         	var resultObj = result;
-        	console.log(result.categoryName);
             var html="";
             $.each (resultObj, function (key, item){
             	html+='<li role="presentation"><a role="menuitem" tabindex="-1" href="#">'+resultObj.categoryName+'</a></li>';

@@ -78,4 +78,10 @@ public class HomeController {
 		return "managepost";
 	}
 	
+	@RequestMapping(value = "/createNew", method = RequestMethod.GET)
+	public String createNew(Model model) {
+		
+		return "createpost";
+	}
+	
 }
