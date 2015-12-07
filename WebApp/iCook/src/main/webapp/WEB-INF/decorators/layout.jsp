@@ -355,14 +355,6 @@
         <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
         <ul id="nav">
           <!-- Main menu with font awesome icon -->
-          <li <c:if test="${activeTab eq 'Dashboard'}">class="open"</c:if> ><a href="/iCook"><i class="fa fa-home"></i> Dashboard</a>
-            <!-- Sub menu markup 
-            <ul>
-              <li><a href="#">Submenu #1</a></li>
-              <li><a href="#">Submenu #2</a></li>
-              <li><a href="#">Submenu #3</a></li>
-            </ul>-->
-          </li>
           <li <c:if test="${activeTab eq 'CreatePost'}">class="open"</c:if>><a href="/iCook/CreatePost" id="postCreate"><i class="fa fa-list-alt"></i>Tạo bài viết <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
           </li>  
           <li <c:if test="${activeTab eq 'ManagePost'}">class="open"</c:if>><a href="/iCook/ManagePost" id="postManage"><i class="fa fa-file-o"></i>Quản lý bài viết <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>

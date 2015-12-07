@@ -25,7 +25,7 @@
                     <!-- Content goes here -->
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
-                              <label class="col-lg-2 control-label">Tên món ăn:</label>
+                              <label class="col-lg-2 control-label">Tiêu đề:</label>
                               <div class="col-lg-5">
                                 <input type="text" class="form-control" placeholder="Input title Here" id="txtFoodName">
                               </div>
@@ -37,48 +37,18 @@
                                     </select>
                                   </div>
                                 </div>    
-                         <div class="form-group">
-                                  <label class="col-lg-2 control-label">Ảnh đại diện:</label>
-                                  <div class="col-lg-5">
-                                    <input type="text" class="form-control imagelink" placeholder="Image Link" id="txtImageLink">
-                                  </div>
-                          </div>
-                          <div class="form-group">
-                                  <label class="col-lg-2 control-label">Xem trước:</label>
-                                  <div class="col-lg-5">
-                                    <img id="imageFood" src="" alt="Smiley face" height="240" width="480" >
-                                  </div>
-                          </div>   
                         <div class="form-group">
-                              <label class="col-lg-2 control-label">Mô tả:</label>
+                              <label class="col-lg-2 control-label">Highlight:</label>
                               <div class="col-lg-6">
                                 <textarea  id="txtDescription" cols="100" rows="25" style="resize:none"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                              <label class="col-lg-2 control-label">Nguyên liệu cần thiết:</label>
-                              <div class="col-lg-6">
-                                <textarea  id="txtMaterialLst" cols="100" rows="8" style="resize:none"></textarea>
-                            </div>
-                        </div>
-                         <div class="form-group">
-                              <label class="col-lg-2 control-label">Chi tiết nguyên liệu:</label>
-                              <div class="col-lg-6">
-                                <textarea  id="txtMaterialDetail" class="cleditor"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label">Hướng dẫn:</label>
+                            <label class="col-lg-2 control-label">Nội dung:</label>
                             <div class="col-lg-6">
                                 <textarea class="cleditor" id="txtContent"></textarea>
                             </div>
                          </div>
-                          <div class="form-group">
-                                  <label class="col-lg-2 control-label">Nguồn:</label>
-                                  <div class="col-lg-5">
-                                    <input type="text" class="form-control imagelink" placeholder="Image Link" id="txtSource">
-                                  </div>
-                          </div>
                         <div class="form-group">
                            <div class="col-lg-offset-2 col-lg-6">
                             <button id="btnSubmit" type="button" class="btn btn-sm btn-default">Submit</button>

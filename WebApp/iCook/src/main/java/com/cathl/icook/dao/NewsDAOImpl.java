@@ -1,33 +1,28 @@
-package com.cathl.icook.service;
+package com.cathl.icook.dao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
-import com.cathl.icook.dao.CategoryDAO;
-import com.cathl.icook.dao.NewsDAO;
 import com.cathl.icook.entity.News;
-@Service
-@Transactional
-public class NewsServiceImpl implements NewsService {
+import com.cathl.icook.util.HibernateUtil;
+@Repository
+public class NewsDAOImpl implements NewsDAO {
 
 	@Autowired
-	NewsDAO newsDAO;
+	HibernateUtil hibernateUltil;	
 	
 	@Override
 	public List<News> getNewsByCategory(int categoryId) {
-		// TODO Auto-generated method stub
-		return null;
+		String query = " WHERE categoryId = " + categoryId;
+		return hibernateUltil.fetchAllByQuery(query, News.class);
 	}
 
 	@Override
 	public News getNewsById(int newsId) {
 		// TODO Auto-generated method stub
-		return null;
+		return hibernateUltil.fetchById(newsId, News.class);
 	}
 
 }

@@ -18,15 +18,15 @@ public class CategoryDAOImpl implements CategoryDAO{
 	public CategoryDAOImpl() {
 		super();
 		// TODO Auto-generated constructor stub
-		System.out.println("DAo");
+		System.out.println("DAO");
 	}
 
 
 
 	@Override
-	public List<TblCategory> getCategory() {
+	public List<Category> getCategory() {
 		// TODO Auto-generated method stub
-		return hibernateUltil.fetchAll(TblCategory.class);
+		return hibernateUltil.fetchAll(Category.class);
 	}
 
 
