@@ -39,10 +39,10 @@
 								</thead>
 								<tbody>
 									<c:forEach items="${ALLNEWS}" var="item" varStatus="counter">
-										<tr id="${item.foodId}" class="thisrow">
+										<tr  class="thisrow">
 											<td>${counter.count }</td>
 											<td><a href="#">${item.title }</a></td>
-											<td><a href="${item.highlight }">${item.linkImage }</a></td>
+											<td><a href="${item.highlight }">${item.highlight }</a></td>
 											
 											<td width="80px">
 												<div class="btn-group1">
