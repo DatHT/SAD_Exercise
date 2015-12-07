@@ -10,7 +10,7 @@
 <body onload="getFood()">
 <div class="row">
 	<div class="col-md-12">
-
+	
 		<div class="widget">
 			<div class="widget-head">
 				<div class="pull-left">Danh sách bài đăng</div>
@@ -20,6 +20,7 @@
 				</div>
 				<div class="clearfix"></div>
 			</div>
+		  
 			<div class="widget-content">
 				<div class="padd">
 					<div class="page-tables">
@@ -37,25 +38,25 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${foodPost }" var="item" varStatus="counter">
+									<c:forEach items="${foodPost}" var="item" varStatus="counter">
 										<tr id="${item.foodId}" class="thisrow">
 											<td>${counter.count }</td>
-											<td><a href="#">${item.foodName }</a></td>
-											<td><a href="${item.linkImage }">${item.linkImage }</a></td>
-											<td>${item.visitNum }</td>
+											<td><a href="#">${item.title }</a></td>
+											<td><a href="${item.highlight }">${item.linkImage }</a></td>
+											
 											<td width="80px">
 												<div class="btn-group1">
 													<button class="btn btn-xs btn-warning"
-														value="${item.foodId}">
+														value="${item.newsid}">
 														<i class="fa fa-check"></i>
 													</button>
-													<button class="btn btn-xs btn-danger" value="${item.foodId}">
+													<button class="btn btn-xs btn-danger" value="${item.newsid}">
 														<i class="fa fa-times" ></i>
 													</button>
 												</div>
 											</td>
 											<td><input type="checkbox" id="selectedFood" class="checkBox"
-												value="${item.foodId }"></td>
+												value="${item.newsid }"></td>
 										</tr>
 									</c:forEach>
 								</tbody>
