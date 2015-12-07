@@ -50,7 +50,7 @@
                 <div class="padd">
                   <!-- Login form -->
                   
-                  <form  class="form-horizontal" action="/iCook"  commandName="user">
+                  <form  class="form-horizontal" action="/iCook/login"  commandName="user" method="POST">
 
                     <!-- Email -->
                     <div class="form-group">
