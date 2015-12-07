@@ -50,10 +50,14 @@ function ajax_loading(item){
     });
 }
 
+$(window).load(function() {
+	load_category();
+});
+
 function load_category(){
 	$.ajax({
         type: "GET",
-        url: "/getNews",
+        url: "getCategories",
         //data: "{}",
         //contentType: "application/json; charset=utf-8",
         dataType:"json", 
