@@ -65,7 +65,7 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping(value = "/getNews", method = RequestMethod.GET)
+	@RequestMapping(value = "/getAllNews", method = RequestMethod.GET)
 	public String getNews(Model model) {
 		List<News> list = newService.getAllNews();
 		model.addAttribute("ALLNEWS", list);
