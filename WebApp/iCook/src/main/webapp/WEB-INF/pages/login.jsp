@@ -50,20 +50,20 @@
                 <div class="padd">
                   <!-- Login form -->
                   
-                  <form  class="form-horizontal" action="/iCook/login"  commandName="user" method="POST">
+                  <form  class="form-horizontal" action="/iCook/login"  method="POST">
 
                     <!-- Email -->
                     <div class="form-group">
                       <label class="control-label col-lg-3" for="inputEmail">Email</label>
                       <div class="col-lg-9">
-                        <input type="text" id="username" class="form-control" placeholder="Email"/>
+                        <input type="text" name="username" class="form-control" placeholder="Email"/>
                       </div>
                     </div>
                     <!-- Password -->
                     <div class="form-group">
                       <label class="control-label col-lg-3" for="inputPassword">Password</label>
                       <div class="col-lg-9">
-                       <input type="password" id="password" class="form-control" placeholder="Password"/>
+                       <input type="password" name="password" class="form-control" placeholder="Password"/>
                       </div>
                     </div>
                     <!-- Remember me checkbox and sign in button -->
