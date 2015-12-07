@@ -6,6 +6,6 @@ import java.util.List;
 import com.cathl.icook.entity.*;
 
 public interface CategoryService {
-	public List<TblCategory> getCategory();
+	public List<Category> getCategory();
 	public Serializable createNewCatelog(TblCategory newCatelog);
 }
