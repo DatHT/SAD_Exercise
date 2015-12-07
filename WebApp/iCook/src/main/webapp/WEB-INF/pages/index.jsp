@@ -27,56 +27,43 @@
     <![endif]-->
   </head>
   <body>
-  <!--.preloader-->
-  <div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
-  <!--/.preloader-->
   <header id="home">
-    <nav class="navbar navbar-inverse navbar-fixed-top nav-pattern" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/iCook">
-             <img class="img-responsive" src="<c:url value="/resources/user_page/images/whatcook.png"></c:url>" alt="logo" width="90%">
-          </a>          
-        </div>
-      
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="#home">Đầu Trang</a></li>
-              <li><a href="/iCook/Admin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Excercise</a>
+      </div>
+    
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#home">Trang Chủ</a></li>
+          <li><a href="/iCook/Admin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
       </div>
     </nav>  
 
-
     <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
-        <div class="item active" style="background-image: url('<c:url value="/resources/user_page/images/backgroud.png"></c:url>')">
-          <div class="caption">
-            <h1 class="animated fadeInLeftBig">Chào mừng đến với <span style="color: #e95748;">ICook</span></h1>
-            <a data-scroll class="btn-start animated fadeInUpBig" href="#home-slider" data-slide="next">Bắt Đầu</a>
-          </div>
-        </div>
-        <div class="item" style="background:#fff url('<c:url value="/resources/user_page/images/bg_main_background.jpg"></c:url>') bottom no-repeat;">
+        <div class="item active" style="background:#fff url('<c:url value="/resources/user_page/images/bg_search_result.jpg"></c:url>') bottom no-repeat;">
           <div class="caption-search">
             <div class="container">
-              <h2>Nấu gì bây giờ nhỉ?</h2>
-              <p>Icook sẽ giúp bạn chọn món ăn phù hợp.......</p>
               <form action="">
                 <div class="row">
                   <div id="form-search"class="form-search col-sm-6 col-md-4 col-sm-offset-2 col-md-offset-3">
-                    <input type="search" name="" id="input-search0" class="form-control input-lg" value="" title="" placeholder="Nguyên liệu">
-                    <a id="btn-plus-search" data-scroll class="animated " href="#home-slider">
-                      <img src="<c:url value="/resources/user_page/images/button-plus.png"></c:url>" class="img-responsive" alt="Image" margin-top="10px" width="30px">
-                    </a>
+					<ul class="dropdown-menu">
+					    <li><a href="#">HTML</a></li>
+					    <li><a href="#">CSS</a></li>
+					    <li><a href="#">JavaScript</a></li>
+					  </ul>
                   </div>
                   <div id="search-button-container" class="form-button col-md-2 col-md-offset-1">
                     <a id="search-button" data-scroll class="animated " href="#search-result-container">
@@ -91,8 +78,7 @@
       </div>
     </div><!--/#home-slider--> 
   </header><!--/#home-->
-    <input id="check-search" type="hidden" value="on">
-    <div id="search-result-container" class="search-bacground" style='display:none !important'>
+    <div id="search-result-container" class="search-bacground">
       <div class="pattern">
         <div  class="container">
           <div class="search-container">

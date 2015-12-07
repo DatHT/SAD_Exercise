@@ -26,7 +26,7 @@ function ajax_loading(item){
         
     $.ajax({
         type: "GET",
-        url: "search",
+        url: "/",
         //data: "{}",
         //contentType: "application/json; charset=utf-8",
         dataType:"json", 
